@@ -20,9 +20,10 @@ export class NewTrainingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.exercises = this.db
+    this.db
       .collection('availableExercises')
-      .valueChanges();
+      .valueChanges()
+      .subscribe(res => console.table(res));
   }
 
   onStartTraining(form: NgForm) {
